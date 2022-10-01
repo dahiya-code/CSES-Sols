@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#define mo 1000000007
+#define ll long long int
+#define pb push_back
+#define pob pop_back
+#define ff first
+#define ss second
+using namespace std;
+void solve()
+{
+    ll n;
+    cin>>n;
+    vector<ll>v;
+    set<ll>st;
+    for(ll i=0;i<n;i++)
+    {
+        ll x;
+        cin>>x;
+        v.pb(x);
+        st.insert(x);
+    }
+    cout<<st.size()<<"\n";
+}
+int main()
+{
+    solve();
+    return 0;
+}
