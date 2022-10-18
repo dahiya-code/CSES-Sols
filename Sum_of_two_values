@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   long long n,x;
+   cin>>n>>x;
+   vector < pair<long long ,long long> > v(n); // vector of pairs
+   for(int i=0;i<n;i++)
+   {
+   		cin>>v[i].first;
+   		v[i].second=i+1;  //2nd element of pair is position
+   }
+   sort( v.begin() , v.end() );
+   long long i=0,j=n-1; 
+   
+   //uisng two pointer method
+   
+   while(i<j)
+   {
+   		if(v[i].first + v[j].first == x) // if ith + jth = target
+   		{
+   			cout<<v[i].second<<" "<<v[j].second<<"\n"; 
+   			// print positions of ith and jth
+   			return 0;
+   		}
+   		else if(v[i].first + v[j].first < x) // if ith + jth < target
+   		{
+   			i++;
+   		}
+   		else   // if ith + jth > target
+   		{
+   			j--;
+   		}
+   }
+   
+   cout<<-1<<endl;
+   //we did not got the our answer
+   
+    return 0;
+}
