@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   long long n,ans=0;
+   cin>>n;
+   vector  <long long > v(n);
+   for(int i=0;i<n;i++)
+   {
+   		cin>>v[i];
+   }
+   
+   sort( v.begin() , v.end() );
+   // to get the median - making every stick equal to median is the optimal solution
+  
+  	for(int i=0;i<n;i++)
+  	{
+  		ans = ans + abs( v[i] - v[n/2] );	 // calculating absolute difference
+  	} 
+  	
+   cout<<ans<<endl;
+   
+    return 0;
+}
