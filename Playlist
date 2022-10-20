@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  	long long n,count=0,ans=0,prev_pos=0;
+  	cin>>n;
+  	deque <long long > v(n);
+  	for(int i=0;i<n;i++)
+  	{
+  		cin>>v[i];
+  	}
+  	set <long long > st;
+  	
+  	for(int i=0;i<n;i++)
+  	{
+  		st.insert(v[i]);
+  		count++;
+  		
+  		if( ans < st.size() ) //update my answer
+  		{
+  			ans=st.size();
+  		}
+  		
+  		if( st.size() < count ) 
+  		{
+  			st.clear();// clear my set
+  			count=0;
+  			while( v[i] != v[prev_pos] && prev_pos<n )
+  			{
+  				prev_pos++;
+  			}
+  			i=prev_pos; // making my i = prev_pos , where element is repeated
+  			prev_pos++;
+  		}
+  	}
+  	cout<<ans<<endl;
+    return 0;
+}
